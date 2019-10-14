@@ -1,36 +1,39 @@
-          
-def split(sequence):                            # converts the input (string) into a list
-   return list(sequence) 
-   
+"""Codefinder Minigame
+You have to guess the number within a certain numer of tries.
+The game tells you the number of positions you guessed correctly after each try.
+   """
+
+# TODO: make variables into parameters
+
 def codefinder():
-    code = "5452"
     code_elements = ['5', '4', '5', '2']
     tries = 10
     correct_ratio = 0
-
-    print("Guess the code motherfucker!")
+    
+    
+    print("Guess the 4-digit code.")
 
     while tries > 0:
-        current_guess = input("Guess the number! ")
-        guess_elements = split(current_guess)
+        current_guess = input("Guess: ")
+        guess_elements = list(current_guess)
+        all_elements = zip(code_elements, guess_elements)
 
-        correct_ratio = len(([i for i, j in zip(code_elements, guess_elements) if i == j]))
-        
-        # print(code_elements)
-        # print(guess_elements)
-        # print(correct_ratio)
+        correct_ratio = len(([code_digit for code_digit, guess_digit in all_elements if code_digit == guess_digit]))
         
         if correct_ratio == 4:
-            print("Correct! Congratulations motherfucker!")
-            return "1"
+            print("Correct!")
+            return True
         
         else:
             tries -= 1
         
         print(f"You got {correct_ratio} positions correct!")
-        print(f"You got {tries} tries left, motherfucker!")
+        print(f"You got {tries} tries left!")
         
 
 
-    print("You fucking died")
-    return "2"
+    print("You ran out of tries")
+    return False
+
+codefinder()
+    
