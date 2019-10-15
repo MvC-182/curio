@@ -212,7 +212,7 @@ def lib_vault():
         
         game_result = codefinder()
         
-        if game_result == "1":
+        if game_result == True:
             print("With a muffled click, the lock slides open!")
             print("Inside the vault, there are scores upon scores of books. You shuffle around a while and then take a particularly interesting set of history books. Ka-ching.")
             print("YOU GAIN 6 CLUES!")
